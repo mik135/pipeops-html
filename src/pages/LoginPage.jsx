@@ -27,13 +27,20 @@ function LoginPage() {
   };
 
   const handleGoogleLogin = async () => {
-    const { user, error } = await supabase.auth.signIn({
-      provider: "google",
-    });
+    const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+        },
+      })
+      
     if (error) {
       console.error(error);
     } else {
-      setUser(user);
+      setUser(data);
       setIsLoggedIn(true);
       // Redirect to workspace dashboard
     }
