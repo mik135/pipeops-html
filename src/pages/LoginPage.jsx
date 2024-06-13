@@ -5,6 +5,7 @@ import LoginDivider from "../components/LoginDivider";
 import { useState } from "react";
 import { supabase } from "../supabase/init";
 import { useAuthStore } from "../stores/authStore";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [focused, setFocused] = useState(false);
@@ -13,12 +14,14 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser, setIsLoggedIn } = useAuthStore();
+  const [loginWithPasswordError, setLoginWithPasswordError] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { user, error } = await supabase.auth.signIn({ email, password });
+    const { user, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
-      console.error(error);
+        setLoginWithPasswordError(true)
+      alert(error);
     } else {
       setUser(user);
       setIsLoggedIn(true);
@@ -35,7 +38,7 @@ function LoginPage() {
             prompt: 'consent',
           },
         },
-      })
+    })
       
     if (error) {
       console.error(error);
@@ -58,10 +61,10 @@ function LoginPage() {
       <div className="shadow-2xl flex flex-col w-[90%] sm:w-[450px] p-10 rounded-md">
         <h2 className="text-4xl font-semibold">Sign in</h2>
         <p className="mb-5 text-lg">Time to get in the zone.</p>
+        {loginWithPasswordError ? <p className="bg-yellow-500 text-white p-2 rounded-md mb-3">Incorrect Details<br />Check your details again or <Link to="/signup"><span className="text-blue-400 underline underline-offset-2 cursor-pointer">Sign Up</span></Link></p> : <p></p>}
         <input
           type="email"
-          name=""
-          id=""
+          name="email"
           className="text-xl p-2 rounded-md mb-5 border-[2px] outline-2 outline-orange-300"
           placeholder="Email"
           value={email}
@@ -69,8 +72,7 @@ function LoginPage() {
         />
         <input
           type="password"
-          name=""
-          id=""
+          name="password"
           className="text-xl p-2 rounded-md mb-5 border-[2px] outline-2 outline-orange-300"
           placeholder="Password"
           value={password}

@@ -8,9 +8,9 @@ import Dashboard from './pages/Dashboard'
 
 
 const ProtectedRoute = ({ children }) => {
-  const user = useAuthStore((state) => state.user)
+  const { user } = useAuthStore()
 
-  if (!user) {
+  if (user == null) {
     return <Navigate to="/login" />
   }
 
@@ -26,11 +26,7 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<Signup />}/>
 
-        <Route path='/protected' element={
-          <ProtectedRoute>
-            <Route path='/dashboard' element={<Dashboard />}/>
-          </ProtectedRoute>
-        } />
+        <Route path='/dashboard' element={ProtectedRoute(<Dashboard />)} />
       </Routes>
     </BrowserRouter>
   )
