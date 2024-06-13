@@ -1,11 +1,28 @@
-import React from 'react'
+import { useState } from 'react';
+import { supabase } from '../supabase/init';
+import { useAuthStore } from '../stores/authStore';
 
-function Signup() {
-  return (
-    <main>
-        
-    </main>
-  )
-}
+const Signup = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { setUser } = useAuthStore();
 
-export default Signup
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { user, error } = await supabase.auth.signUp({ email, password });
+    if (error) {
+      console.error(error);
+    } else {
+      setUser(user);
+      // Redirect to login page
+
+    }
+  };
+
+  // ... form JSX
+  <main>
+
+  </main>
+};
+
+export default Signup;
