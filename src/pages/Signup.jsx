@@ -4,16 +4,20 @@ import { useAuthStore } from "../stores/authStore";
 import LoginDivider from "../components/LoginDivider";
 import googlepic from "../assets/google.svg";
 import { Link, Navigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
+  const [loading, setLoading] = useState(false)
   const { setUser } = useAuthStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(state => !state)
 
     // TODO: Make Confirm Password check dynamically before submitting
     if (confirmPassword != password) {
@@ -25,7 +29,7 @@ const Signup = () => {
       } else {
         setUser(user);
         // Redirect to login page
-        <Navigate to="/login" />;
+        <Navigate to="/confirm" />;
       }
     }
   };
@@ -97,9 +101,16 @@ const Signup = () => {
       </h4>
 
       <button
-        className="rounded-3xl mt-5 h-[50px] bg-orange-700 text-white hover:bg-orange-800 focus:bg-white border-orange-700 border-[2px] focus:text-orange-700 font-medium"
+        className="flex gap-3 items-center justify-center rounded-3xl mt-5 h-[50px] bg-orange-700 text-white hover:bg-orange-800 focus:bg-white border-orange-700 border-[2px] focus:text-orange-700 font-medium"
         onClick={handleSubmit}
       >
+        <ClipLoader
+        color="orange"
+        loading={loading}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        size={20}
+      />
         Sign Up
       </button>
       <LoginDivider />

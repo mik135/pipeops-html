@@ -5,20 +5,25 @@ import { useState } from "react";
 import { supabase } from "../supabase/init";
 import { useAuthStore } from "../stores/authStore";
 import { Link, Navigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 function LoginPage() {
 
   // User Related State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false)
   const { setUser, setIsLoggedIn } = useAuthStore();
   const [loginWithPasswordError, setLoginWithPasswordError] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     const { user, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
         setLoginWithPasswordError(true)
+        setLoading(false)
         console.log(error)
     } else {
       setUser(user);
@@ -31,12 +36,6 @@ function LoginPage() {
   const handleGoogleLogin = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: {
-          queryParams: {
-            access_type: 'offline',
-            prompt: 'consent',
-          },
-        },
     })
       
     if (error) {
@@ -79,9 +78,19 @@ function LoginPage() {
           Forgot password?
         </h4>
 
-        <button className="rounded-3xl mt-5 h-[50px] bg-orange-700 text-white hover:bg-orange-800 focus:bg-white border-orange-700 border-[2px] focus:text-orange-700 font-medium" onClick={handleSubmit}>
-          Sign in
-        </button>
+        <button
+        className="flex gap-3 items-center justify-center rounded-3xl mt-5 h-[50px] bg-orange-700 text-white hover:bg-orange-800 focus:bg-white border-orange-700 border-[2px] focus:text-orange-700 font-medium"
+        onClick={handleSubmit}
+      >
+        <ClipLoader
+        color="orange"
+        loading={loading}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+        size={20}
+      />
+        Sign in
+      </button>
         <LoginDivider />
         <button
           className="w-full border-[2px] flex justify-center items-center h-[50px] gap-3 rounded-3xl font-medium focus:text-green-300 focus:border-green-400"

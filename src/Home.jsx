@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import { Link } from 'react-router-dom'
 
 
 
@@ -13,8 +14,12 @@ function Home() {
             <li>For Students</li>
             <li>For Instructors</li>
             <li>Help</li>
-            <li className='text-white bg-[#1f93e0] h-10 border border-solid border-#1f93e0 rounded-xl w-24 flex justify-center items-center'>Sign In</li>
-            <li className='text-black bg-[#e8eef3] h-10 border border-solid border-#e8eef3 rounded-xl w-28 flex justify-center items-center'>Get Started</li>
+            <Link to="/login">
+              <li className='text-white bg-[#1f93e0] h-10 border border-solid border-#1f93e0 rounded-xl w-24 flex justify-center items-center'>Sign In</li>
+            </Link>
+            <Link to="/signup">
+              <li className='text-black bg-[#e8eef3] h-10 border border-solid border-#e8eef3 rounded-xl w-28 flex justify-center items-center'>Get Started</li>
+            </Link>
         </ul>
      </nav>
     </header>

@@ -42,8 +42,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dashboard' element={<Layout />}>
-          <Route index element={ProtectedRoute(<Dashboard />)}/>
-          <Route path='spaces' element={ProtectedRoute(<SpacesPage />)} />
+          <Route index element={<Dashboard />}/>
+          <Route path='spaces' element={<SpacesPage />} />
         </Route>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<Signup />}/>

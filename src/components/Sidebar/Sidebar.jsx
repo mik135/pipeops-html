@@ -31,7 +31,7 @@ export default function Sidebar() {
         <div className={isOpen ? "mt-auto self-start" : "mt-auto self-center"}>
             <Link to="/notifications" className="relative w-fit">
                 <img src={bell} alt="notification icon" className="w-7" />
-                <p className="w-[25px] h-[25px] bg-red-400 text-md text-center rounded-full absolute top-[-5px] right-[-35px]">0</p>
+                <p className="w-[25px] h-[25px] bg-red-400 text-md text-center rounded-full absolute top-[-5px] right-[-12px]">0</p>
             </Link>
         </div>
     </aside>
