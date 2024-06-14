@@ -2,12 +2,12 @@ import './App.css'
 import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom'
 import { useAuthStore } from './stores/authStore'
 import { supabase } from "./supabase/init";
-import Home from './pages/Home'
 import LoginPage from './pages/LoginPage'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import Layout from './pages/Layout';
 import SpacesPage from './pages/SpacesPage';
+import Home from './Home'
 
 
 // const user = await supabase.auth.getSession().session.user
@@ -31,9 +31,12 @@ function base() {
   }
 }
 
+
+
 function App() {
 
   return (
+
     <BrowserRouter>
     
       <Routes>
