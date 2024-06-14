@@ -1,8 +1,10 @@
-import React from 'react'
+
 
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div className="flex flex-col w-full">
+            <h1>You are successfully logged in</h1>
+    </div>
   )
 }
 

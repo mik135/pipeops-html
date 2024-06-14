@@ -47,6 +47,7 @@ const Signup = () => {
       setUser(data);
       setIsLoggedIn(true);
       // Redirect to workspace dashboard
+      <Navigate to="/dashboard" />
     }
   };
 

@@ -1,5 +1,4 @@
 import React from "react";
-import loginpic from "../assets/loginpic.jpg";
 import googlepic from "../assets/google.svg";
 import LoginDivider from "../components/LoginDivider";
 import { useState } from "react";
@@ -8,7 +7,6 @@ import { useAuthStore } from "../stores/authStore";
 import { Link } from "react-router-dom";
 
 function LoginPage() {
-  const [focused, setFocused] = useState(false);
 
   // User Related State
   const [email, setEmail] = useState("");
@@ -21,11 +19,11 @@ function LoginPage() {
     const { user, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
         setLoginWithPasswordError(true)
-      alert(error);
     } else {
       setUser(user);
       setIsLoggedIn(true);
       // Redirect to workspace dashboard
+      <Navigate to="/dashboard" />
     }
   };
 
@@ -46,12 +44,9 @@ function LoginPage() {
       setUser(data);
       setIsLoggedIn(true);
       // Redirect to workspace dashboard
+      <Navigate to="/dashboard" />
     }
   };
-
-  function handleColorChange() {
-    setFocused((state) => !state);
-  }
 
   return (
     <main className="flex flex-col items-center gap-10">
