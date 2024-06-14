@@ -28,7 +28,7 @@ function Home() {
         <div className='flex items-center w-80 justify-between bg-white p-2 rounded-lg'>
             <div className='flex items-center justify-between gap-1'>
                 <img src={'images/searchmagnifier.svg'} alt="search bar" />
-                <input type="text" name="email" id="enter-email" placeholder='Enter your email' className='border-none'/>
+                <input type="text" name="email" id="enter-email" placeholder='Enter your email' className='border-none outline-none'/>
             </div>
 
             <p className='text-white text-sm bg-[#1f93e0] h-8 border border-solid border-[#1f93e0] rounded-lg w-24 flex justify-center items-center font-bold'>Get Started</p>
