@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* <div className='w-4/5 m-auto mt-10'>
+<h2 className='text-2xl font-sans font-bold tracking-tight'>How Students are using Priory</h2>
+<ul className='list-disc font-bold'>
+    <li>Create a classroom to work on group projects</li>
+    <li>Chat with classmates and study partners</li>
+    <li>Store notes all in one place</li>
+    <li>Organise docs by sections</li>
+    <li>Work and edit together</li>
+</ul>
+</div> */
