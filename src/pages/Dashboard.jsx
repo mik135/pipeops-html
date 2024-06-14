@@ -46,8 +46,18 @@ function Dashboard() {
     </div>
    </div>
 
+    <div className="w-11/12 flex m-auto mt-10">
+    <div className="w-96 border border-solid border-[#33333371] rounded-md text-center p-3 h-80">
+      <h2 className="text-3xl font-sans font-semibold tracking-tighter pb-4">Recent Activity ⚒</h2>
+      <p className="text-[#33333371] text-sm font-sans">No recent activity create a classroom and start collaborating and working on projects with friends</p>
+    </div>
+
+    <div>
     
-   
+    </div>
+    
+    </div>
+
   </div>
   )
 }
