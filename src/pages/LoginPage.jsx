@@ -96,7 +96,7 @@ function LoginPage() {
         </button>
       </div>
       <h3 className="text-lg font-medium">
-        New to Spacely? <span className="text-orange-700">Join Now</span>
+        New to Spacely? <Link to="/signup"><span className="text-orange-700 underline underline-offset-2 cursor-pointer">Join Now</span></Link>
       </h3>
     </main>
   );

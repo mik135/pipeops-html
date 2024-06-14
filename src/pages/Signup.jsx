@@ -91,8 +91,8 @@ const Signup = () => {
         onChange={(e) => setConfirmPassword(e.target.value)}
       />
 
-      <h4 className="text-orange-700 font-medium text-lg">
-        Have an account? <Link to="/login" className="text-blue-400 underline underline-offset-2 cursor-pointer">Login</Link>
+      <h4 className="font-medium text-lg">
+        Have an account? <Link to="/login" className="text-orange-700 underline underline-offset-2 cursor-pointer">Login</Link>
       </h4>
 
       <button
