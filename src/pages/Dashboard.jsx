@@ -46,17 +46,31 @@ function Dashboard() {
     </div>
    </div>
 
-    <div className="w-11/12 flex m-auto mt-10">
-    <div className="w-96 border border-solid border-[#33333371] rounded-md text-center p-3 h-80">
-      <h2 className="text-3xl font-sans font-semibold tracking-tighter pb-4">Recent Activity ⚒</h2>
+    <div className="w-11/12 flex gap-6 m-auto mt-10">
+    <div className="w-96 border border-solid border-[#1f93e0] bg-[#1f93e0] rounded-md text-center p-3 h-80">
+      <h2 className="text-3xl font-sans tracking-tighter pb-4 text-[#fff] font-semibold">Recent Activity ⚒</h2>
       <p className="text-[#33333371] text-sm font-sans">No recent activity create a classroom and start collaborating and working on projects with friends</p>
     </div>
 
-    <div>
+    <div className="w-3/5 flex justify-center items-center border border-solid border-[#33333371] gap-5 rounded-md text-center p-3 h-72">
+      <div className="w-80 text-center border border-solid border-[#1f93e0] p-2 rounded-lg h-60 cursor-pointer">
+        <div className="flex justify-center items-center"><img src={'images/icons8-plus-96.png'} alt="create new class" className="h-40"/></div>
+        <h2 className="text-2xl font-bold font-serif text-[#1f93e0] tracking-tight">Create a new Classroom</h2>
+      </div>
+
+      <div className="w-80 text-center border border-solid border-[#1DCF39] p-2 rounded-lg h-60 cursor-pointer">
+        <div className="flex justify-center items-center"><img src={'images/icons8-join-96.png'} alt="create new class" className="h-40"/></div>
+        <h2 className="text-2xl font-bold font-serif text-[#1DCF39] tracking-tight">Join existing Classroom</h2>
+      </div>
+    </div>  
+    </div>
+
+    <div className='flex justify-center gap-28 w-2/4 m-auto mt-20 text-[#333333]'>
+      <h2 className='font-sans text-xl'>Privacy Policy</h2>
+      <h2 className='font-sans text-xl'>Terms of service</h2>
     
     </div>
-    
-    </div>
+
 
   </div>
   )
