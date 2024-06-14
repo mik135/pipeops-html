@@ -60,7 +60,7 @@ function Dashboard() {
 
       <div className="w-80 text-center border border-solid border-[#1DCF39] p-2 rounded-lg h-60 cursor-pointer">
         <div className="flex justify-center items-center"><img src={'images/icons8-join-96.png'} alt="create new class" className="h-40"/></div>
-        <h2 className="text-2xl font-bold font-serif text-[#1DCF39] tracking-tight">Join existing Classroom</h2>
+        <h2 className="text-2xl font-bold font-serif text-[#1DCF39] tracking-tight">Join an existing Classroom</h2>
       </div>
     </div>  
     </div>
