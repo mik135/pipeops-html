@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import meteor from '../../assets/meteor.svg'
 import pluginpic from '../../assets/plug.svg'
+import bell from '../../assets/bell.svg'
 import { useState } from 'react'
 
 export default function Sidebar() {
@@ -13,18 +14,25 @@ export default function Sidebar() {
     <>
     
     <aside className={"bg-slate-400 text-white py-5 px-3 h-screen flex flex-col" + width + full} >
-      <h1 className={isOpen ? "text-4xl font-extrabold bg-white w-fit py-2 px-2 rounded-xl self-start" : "text-4xl font-extrabold w-fit bg-white py-2 px-2 rounded-xl"}>
+      <Link to="/dashboard"><h1 className={isOpen ? "text-4xl font-extrabold bg-white w-fit py-2 px-2 rounded-xl self-start" : "text-4xl font-extrabold w-fit bg-white py-2 px-2 rounded-xl"}>
         <span className="text-orange-700">ly.</span>
-      </h1>
+      </h1></Link>
         <div className="flex flex-col text-xl mt-10 gap-5">
-            <NavLink to="/dashboard/spaces" className={({ isActive}) => isActive ? "flex items-center gap-5 bg-orange-600 w-full p-4 rounded-xl" : "flex items-center gap-5"}>
-                <img src={meteor} alt="icon" className="w-8"/>
+            <NavLink to="/dashboard/spaces" className={({ isActive}) => isActive ? "flex items-center gap-5 bg-orange-600 w-full p-4 rounded-xl" : "flex items-center gap-5 p-4"}>
+                <img src={meteor} alt="icon" className="w-7"/>
                 {isOpen ? <p>Spaces</p> : null}
             </NavLink>
             <NavLink to="/plugins" className={({ isActive}) => isActive ? "flex items-center gap-5 bg-orange-600 w-full p-4 rounded-xl" : "flex items-center gap-5 p-4"}>
-                <img src={pluginpic} alt="icon" className="w-8" />
+                <img src={pluginpic} alt="icon" className="w-7" />
                 {isOpen ? <p>Plugins</p> : null}
             </NavLink>
+        </div>
+
+        <div className={isOpen ? "mt-auto self-start" : "mt-auto self-center"}>
+            <Link to="/notifications" className="relative w-fit">
+                <img src={bell} alt="notification icon" className="w-7" />
+                <p className="w-[25px] h-[25px] bg-red-400 text-md text-center rounded-full absolute top-[-5px] right-[-35px]">0</p>
+            </Link>
         </div>
     </aside>
     <div className="bg-orange-700 w-[50px] h-[50px] p-3 rounded-full mt-5 ml-3 cursor-pointer" onClick={() => setIsOpen(state => !state)}>

@@ -2,8 +2,8 @@
 
 function Dashboard() {
   return (
-    <div className="flex flex-col w-full">
-            <h1>You are successfully logged in</h1>
+    <div className='text-center w-full'>
+        <h1 className='text-5xl'>You are logged in</h1>
     </div>
   )
 }

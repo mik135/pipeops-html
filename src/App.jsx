@@ -10,30 +10,40 @@ import Layout from './pages/Layout';
 import SpacesPage from './pages/SpacesPage';
 
 
+// const user = await supabase.auth.getSession().session.user
+
 const ProtectedRoute = ({ children }) => {
   const { isLoggedIn } = useAuthStore()
-
+  
   if (!isLoggedIn) {
     return <Navigate to="/login" />
   }
-
+  
   return children
+}
+
+function base() {
+  const { isLoggedIn } = useAuthStore()
+  if(isLoggedIn) {
+    return <Dashboard />
+  } else {
+    return <Home />
+  }
 }
 
 function App() {
 
   return (
     <BrowserRouter>
+    
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/dashboard' element={<Layout />}>
+          <Route index element={ProtectedRoute(<Dashboard />)}/>
+          <Route path='spaces' element={ProtectedRoute(<SpacesPage />)} />
+        </Route>
         <Route path='/login' element={<LoginPage />} />
         <Route path='/signup' element={<Signup />}/>
-        <Route path="/dashboard" element={<Layout />}>
-          <Route index element={<Dashboard />}/>
-          <Route path='spaces' element={<SpacesPage />} />
-        </Route>
-
-        {/* <Route path='/dashboard' element={ProtectedRoute(<Dashboard />)} /> */}
       </Routes>
     </BrowserRouter>
   )

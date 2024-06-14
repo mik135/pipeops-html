@@ -4,5 +4,5 @@ export const useAuthStore = create((set) => ({
     user: null,
     setUser: (user) => set({ user }),
     isLoggedIn: false,
-    setIsLoggedIn: () => set({ isLoggedIn: !!user })
+    setIsLoggedIn: (user) => set({ isLoggedIn: !!user }),
 }))

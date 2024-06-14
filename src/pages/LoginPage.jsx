@@ -4,7 +4,7 @@ import LoginDivider from "../components/LoginDivider";
 import { useState } from "react";
 import { supabase } from "../supabase/init";
 import { useAuthStore } from "../stores/authStore";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 function LoginPage() {
 
@@ -19,9 +19,10 @@ function LoginPage() {
     const { user, error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
         setLoginWithPasswordError(true)
+        console.log(error)
     } else {
       setUser(user);
-      setIsLoggedIn(true);
+      setIsLoggedIn(user);
       // Redirect to workspace dashboard
       <Navigate to="/dashboard" />
     }
@@ -42,7 +43,7 @@ function LoginPage() {
       console.error(error);
     } else {
       setUser(data);
-      setIsLoggedIn(true);
+      setIsLoggedIn(data);
       // Redirect to workspace dashboard
       <Navigate to="/dashboard" />
     }

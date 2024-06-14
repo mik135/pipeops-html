@@ -2,7 +2,9 @@ import React from 'react'
 
 function SpacesPage() {
   return (
-    <div>SpacesPage</div>
+    <div className='text-center w-full'>
+        <h1 className='text-5xl'>SpacesPage</h1>
+    </div>
   )
 }
 
