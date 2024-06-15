@@ -24,22 +24,22 @@ function Dashboard() {
     </div>
 
     <div className="grid grid-cols-4 mt-5 gap-5">
-      <div className="w-60 border border-solid border-[#33333371] p-2 rounded-lg text-center">
+      <div className="w-60 border-4 border-solid border-[#33333371] p-2 rounded-lg text-center">
         <h2 className="text-2xl font-bold p-1">0</h2>
         <p className="text-sm text-[#333333] font-serif">Tasks</p>
       </div>
 
-      <div className="w-60 border border-solid border-[#33333371] p-2 rounded-lg text-center">
+      <div className="w-60 border-4 border-solid border-[#33333371] p-2 rounded-lg text-center">
         <h2 className="text-2xl font-bold p-1">0</h2>
         <p className="text-sm text-[#333333] font-serif">Classes</p>
       </div>
 
-      <div className="w-60 border border-solid border-[#33333371] p-2 rounded-lg text-center">
+      <div className="w-60 border-4 border-solid border-[#33333371] p-2 rounded-lg text-center">
         <h2 className="text-2xl font-bold p-1">0</h2>
         <p className="text-sm text-[#333333] font-serif">Events</p>
       </div>
 
-      <div className="w-60 border border-solid border-[#33333371] p-2 rounded-lg text-center">
+      <div className="w-60 border-4 border-solid border-[#33333371] p-2 rounded-lg text-center">
         <h2 className="text-2xl font-bold p-1">0</h2>
         <p className="text-sm text-[#333333] font-serif">Completed</p>
       </div>

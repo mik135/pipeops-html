@@ -35,8 +35,9 @@ function Home() {
                 <img src={'images/searchmagnifier.svg'} alt="search bar" />
                 <input type="text" name="email" id="enter-email" placeholder='Enter your email' className='border-none outline-none'/>
             </div>
-
+            <Link to="/signup">
             <p className='text-white text-sm bg-[#1f93e0] h-8 border border-solid border-[#1f93e0] rounded-lg w-24 flex justify-center items-center font-bold'>Get Started</p>
+            </Link>
         </div>
     </div>
     </div>
@@ -50,7 +51,9 @@ function Home() {
         <li>Organise docs by sections</li>
         <li>Work and edit together</li>
     </ul>
+    <Link to="/signup">
     <p className='text-white text-sm bg-[#1f93e0] h-8 border border-solid border-[#1f93e0] rounded-lg w-24 flex justify-center items-center font-bold'>Get Started</p>
+    </Link>
     </div>
 
     <div className='grid w-4/5 grid-cols-4 m-auto mt-10 gap-4'>
@@ -83,8 +86,9 @@ function Home() {
     <div className='w-4/5 m-auto mt-10'>
       <h2 className='text-3xl font-serif font-extrabold tracking-tight text-[#1f93e0] mb-2'>Features that students love</h2>
       <p className='leading-6 text-sm font-semibold mb-2'>Priory has everything you need to build a strong community of learners and succeed in your <br/> courses. All in one place</p>
+      <Link to="/signup">
       <p className='text-white text-sm bg-[#1f93e0] h-8 border border-solid border-[#1f93e0] rounded-lg w-24 flex justify-center items-center font-bold'>Get Started</p>
-      
+      </Link>
       <div className='grid w-4/5 grid-cols-3 mt-10 gap-44'>
       
         <div className='w-80 cursor-pointer'>
